@@ -7,4 +7,44 @@ public class Pokemon_Center {
 
         pokedex = new Pokemon[MAX_POKEDEX_CAPACITY];
     }
+
+    /**
+     * Search for a Pokemon from the Pokedex by its identifier
+     * @param id pokedex number
+     * @return requested Pokemon, null if not found in the pokedex
+     */
+    public Pokemon findPokemonById(int id) {
+        Pokemon pokemon = null;
+        boolean found = false;
+
+        for (int i = 0; i < MAX_POKEDEX_CAPACITY && !found; i++) {
+            if (pokedex[i] != null && pokedex[i].getId() == id) {
+                found = true;
+                pokemon = pokedex[i];
+            }
+        }
+
+        return pokemon;
+    }
+
+    /**
+     * Search for first available space in the Pokedex
+     * @return index of the available space, -1 if there's no space left
+     */
+    public int findFirstEmptySpace() {
+        boolean found = false;
+        int index = -1;
+
+        for (int i = 0; i < MAX_POKEDEX_CAPACITY && !found; i++) {
+            if (pokedex[i] == null) {
+                found = true;
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+
+
 }
