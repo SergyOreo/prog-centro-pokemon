@@ -65,4 +65,20 @@ public class Pokemon_Center {
         return registered;
     }
 
+    /**
+     * Shows full Pokemon list with their attributes
+     * @return String Pokemon list
+     */
+    public String showPokedex(){
+        StringBuilder sb = new StringBuilder("Pokedex{\n");
+
+        for (int i = 0; i < MAX_POKEDEX_CAPACITY; i++) {
+            if (pokedex[i] != null) {
+                sb.append(pokedex[i].toString()).append("\n");
+            }
+        }
+
+        sb.append("}");
+        return sb.toString();
+    }
 }
