@@ -50,6 +50,10 @@ public class Pokemon {
         return level;
     }
 
+    /**
+     * Shows Pokemon and its attributes
+     * @return String with Pokemon attributes
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
