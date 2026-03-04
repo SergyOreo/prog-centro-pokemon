@@ -45,6 +45,24 @@ public class Pokemon_Center {
         return index;
     }
 
+    /**
+     * Register new Pokemon into Pokedex
+     * @param pokemon new Pokemon
+     * @return true if registered succesfully, false if it already exists or there's no space in the pokedex
+     */
+    public boolean registerPokemon(Pokemon pokemon) {
+        int freeSpace;
+        boolean registered;
 
+        freeSpace = findFirstEmptySpace();
+        if (freeSpace == -1 || findPokemonById(pokemon.getId()) != null) {
+            registered = false;
+        }  else {
+            pokedex[freeSpace] = pokemon;
+            registered = true;
+        }
+
+        return registered;
+    }
 
 }
